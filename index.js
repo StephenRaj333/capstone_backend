@@ -55,12 +55,12 @@ const TableData = mongoose.model('tabelData', tableDataSchema);
 // Routes
 app.get('/get', async (req, res) => {
     try {
-        const projects = await TableData.find({});  
+        const projects = await TableData.find({}).sort({ id: 1 });  
         res.send(projects);  
     } catch (err) {
         res.status(500).send('Error fetching projects');
     }
-});     
+}); 
 
 // Add  
 app.post('/add', async (req, res) => {
